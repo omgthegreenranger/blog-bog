@@ -30,7 +30,15 @@ Comment.init(
             key: 'id'
         }
     },
-},
+    // BLOG ID for relationship
+    blog_id: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'blog',
+            key: 'id'
+        }
+    }
+    },
     {
         sequelize,
         timestamps: false,

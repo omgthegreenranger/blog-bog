@@ -1,5 +1,6 @@
 const { Blog, Comment, User } = require('../../models');
 const router = require('express').Router();
+const sequelize = require('sequelize');
 
 // These require login as true and user "author" boolean as `true`.
 
@@ -7,36 +8,43 @@ const router = require('express').Router();
 // Find all Blogs, along with count of comments on the blog.
 
 router.get('/', async (req, res) => {
-    const blogData = await Blog.findAll({
-        attributes:{   
-            include: [[sequelize.fn("COUNT", sequelize.col("comments.id")), "Comments"]]
-        },
-        include: [{
-            model: 'comment',
-            attributes: []
-        }]
+    try {
+        const blogData = await Blog.findAll({
+            attributes: ['title', 'date', 'slugline'],
+            include: [{
+                model: Comment
+                }],
+            include: [{
+                model: User,
+                attributes: ['username', 'email', 'id']
+            }]
     });
+    res.status(200).json(blogData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+    // res.render('main')
 
-    res.render('main')
-
-})
+});
 
 // Find one blog, include all comments for display at the bottom
 
 router.get('/:id', async (req, res) => {
-    const blogData = await Blog.findbyPk(req.params.id, {
-        attributes:['title', 'slugline', 'body'],
-        include: {
-            model: 'comment',
-            attributes: ['comment', 'user.username']
-        },
-        include: {
-            model: 'user',
-            attributes: ['name', 'email']
-        }
-    });
-
-    res.render('main')
+    try {
+        const blogData = await Blog.findByPk(req.params.id, {
+            attributes: ['title', 'date', 'slugline', 'body', 'id'],
+            include: [{
+                model: Comment,
+            },
+            {
+                model: User,
+            }]
+        });
+        res.status(200).json(blogData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    // res.render('main')
 
 })
 

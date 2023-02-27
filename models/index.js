@@ -10,16 +10,10 @@ Comment.belongsTo(User, {
 });
 
 // User has many comments
-User.hasMany(Comment, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE',
-});
+User.hasMany(Comment);
 
 // Blog has many comments
-Blog.hasMany(Comment, {
-  foreignKey: 'blog_id',
-  onDelete: 'CASCADE'
-});
+Blog.hasMany(Comment);
 
 // Comment has one blog
 Comment.belongsTo(Blog, {
@@ -29,10 +23,7 @@ Comment.belongsTo(Blog, {
 
 
 // User has many blogs
-User.hasMany(Blog, {
-  foreignKey: 'blog_id',
-  onDelete: 'CASCADE'
-});
+User.hasMany(Blog);
 
 // Blog has one user
 
