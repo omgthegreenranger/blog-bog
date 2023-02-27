@@ -22,14 +22,6 @@ Comment.init(
         type: DataTypes.TEXT,
         allowNull: false,
     },
-    blog_id: {
-        // blog_id (one to many)
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'blog',
-            key: 'id'
-        }
-    },
     // Commenter - user_id (one to many)
     user_id: {
         type: DataTypes.INTEGER,

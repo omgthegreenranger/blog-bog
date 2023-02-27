@@ -10,7 +10,7 @@ Blog.init(
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,
-        autoIncrememt: true,
+        autoIncrement: true,
     },
     title: {
         // Blog Title

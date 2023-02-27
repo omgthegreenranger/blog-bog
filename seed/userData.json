@@ -1,0 +1,26 @@
+[
+    {
+        "first_name": "Stephen",
+        "last_name": "Cardie",
+        "username": "Cardiest",
+        "email": "stephen@stegra.ca",
+        "password": "passingword",
+        "author": true
+    },
+    {
+        "first_name": "Solomon",
+        "last_name": "Grundy",
+        "username": "BornOnSunday",
+        "email": "grundy@sunday.com",
+        "password": "solomongrundy",
+        "author": false
+    },
+    {
+        "first_name": "Peter",
+        "last_name": "Parker",
+        "username": "notspidey",
+        "email": "peter@parker.web",
+        "password": "reallynotspidey",
+        "author": false
+    }
+]
