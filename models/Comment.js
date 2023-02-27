@@ -6,7 +6,7 @@ class Comment extends Model {}
 Comment.init(
     {
     // Comment_ID 
-    comment_id: {
+    id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,
@@ -17,8 +17,10 @@ Comment.init(
         type: DataTypes.DATE,
         allowNull: false,
     },
-    body:{
+    comment:{
         // Comment body
+        type: DataTypes.TEXT,
+        allowNull: false,
     },
     blog_id: {
         // blog_id (one to many)
@@ -30,17 +32,19 @@ Comment.init(
     },
     // Commenter - user_id (one to many)
     user_id: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
         references: {
             model: 'user',
             key: 'id'
         }
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'comment'
+},
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'comment',
     }
 );
 

@@ -1,14 +1,17 @@
 const router = require('express').Router();
 const { Blog, Comments, Users } = require('../models');
 
-// GET blog posts for homepage
+// GET all blog posts for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
+    const blogPosts = await Blog.findAll({
+      attributes: {'title, slugline, date, user_id'};
       include: [
         {
-          model: Painting,
-          attributes: ['filename', 'description'],
+          model: Comment,
+          where: {
+          
+          }
         },
       ],
     });

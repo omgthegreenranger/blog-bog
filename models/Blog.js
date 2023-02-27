@@ -38,11 +38,13 @@ Blog.init(
         type: DataTypes.TEXT('long'),
         allowNull: false
     },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'blog'
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blog',
     }
 );
 

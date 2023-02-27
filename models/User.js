@@ -33,12 +33,14 @@ User.init(
         author: {
             type: DataTypes.BOOLEAN,
         },
+    },
+    {
         sequelize,
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'user'
-    }  
+        modelName: 'user',
+    } 
 );
 
 module.exports = User;
