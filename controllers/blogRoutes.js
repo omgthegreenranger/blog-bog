@@ -1,4 +1,4 @@
-const { Blog, Comment, User } = require('../../models');
+const { Blog, Comment, User } = require('../models');
 const router = require('express').Router();
 const sequelize = require('sequelize');
 
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
         });
         console.log(blogData);
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
-        res.render('bloglist', { blogs });
+        res.render('homepage', { blogs });
         // res.status(200).json(blogData);
     } catch (err) {
         res.status(500).json(err);

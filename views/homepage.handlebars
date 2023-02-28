@@ -4,12 +4,17 @@
     <h2>Latest Post</h2>
   </div>
   <div class="col-md-6">
-    <div>
-      <h3>Blog Title</h3>
+    {{#each blogs}}
+    <a href=../blog/{{id}}>
+    <div class="blog-title">
+      <h3>{{title}}</h3>
     </div>
-    <div>
-      <h4>Slugline</h4>
-      <p>Written by: <span>"Author"</span> on <span>"Posting Date"</span>. <span># of comments</span></p>
+    <div class="blog-details">
+      <h4>{{slugline}}</h4>
+    </a>
+      <p>Written by: <a href=mailto:{{user.email}}><span>{{user.username}}</span></a> on <span>{{date}}</span>. <span>{{comments.length}} comments</span></p>
     </div>
+
+    {{/each}}
   </div>
 </div>

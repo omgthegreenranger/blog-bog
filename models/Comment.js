@@ -31,13 +31,13 @@ Comment.init(
         }
     },
     // BLOG ID for relationship
-    blog_id: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'blog',
-            key: 'id'
-        }
-    }
+    // blog_id: {
+    //     type: DataTypes.INTEGER,
+    //     references: {
+    //         model: 'blog',
+    //         key: 'id'
+    //     }
+    // }
     },
     {
         sequelize,
