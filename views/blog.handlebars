@@ -1,8 +1,23 @@
-{{!-- this will be the blog posts page --}}
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <!-- Call the helper function with triple brackets to render the span as HTML -->
+    <h2>Latest Post</h2>
+  </div>
+  <div class="col-md-6">
+    <div>
+      <h3>{{title}}</h3>
+    </div>
+    <div>
+      <h4>{{slugline}}</h4>
+      <p>Written by: <span>{{user.username}}</span> on <span>{{date}}</span>.
+    </div>
+    <div>{{body}}</div>
 
-<section class="blogs">
-<<<<<<< HEAD
-    
-=======
->>>>>>> 7d3baae (Updating handlebars.)
-</section>
+    {{#each comments}}
+    <div id="comment">
+        <p><a href=/user/{{user.id}}>{{user.username}}</a> wrote...</p>
+        <p>{{comment}}</p>
+    </div>
+    {{/each}}
+  </div>
+</div>

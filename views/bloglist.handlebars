@@ -1,0 +1,17 @@
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+    <!-- Call the helper function with triple brackets to render the span as HTML -->
+    <h2>Latest Post</h2>
+  </div>
+  <div class="col-md-6">
+    {{#each blogs}}
+    <div>
+      <h3>{{title}}</h3>
+    </div>
+    <div>
+      <h4>{{slugline}}</h4>
+      <p>Written by: <a href=mailto:{{user.email}}><span>{{user.username}}</span></a> on <span>{{date}}</span>. <span># of comments</span></p>
+    </div>
+    {{/each}}
+  </div>
+</div>

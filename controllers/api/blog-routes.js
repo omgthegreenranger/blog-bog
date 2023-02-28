@@ -13,40 +13,47 @@ router.get('/', async (req, res) => {
             attributes: ['title', 'date', 'slugline'],
             include: [{
                 model: Comment
-                }],
-            include: [{
+                },
+                {
                 model: User,
                 attributes: ['username', 'email', 'id']
             }]
-    });
-    res.status(200).json(blogData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-    // res.render('main')
+        });
 
+        const blogs = blogData.map((blog) => blog.get({ plain: true }));
+        res.render('bloglist', { blogs });
+        // res.status(200).json(blogData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
 });
 
 // Find one blog, include all comments for display at the bottom
-
 router.get('/:id', async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
             attributes: ['title', 'date', 'slugline', 'body', 'id'],
             include: [{
                 model: Comment,
+                include: [{
+                    model: User,
+                    attributes: ['username', 'email', 'id'],
+                }]
             },
             {
                 model: User,
+                attributes: ['username', 'email', 'id']
             }]
         });
-        res.status(200).json(blogData);
+        const blogs = blogData.get({ plain: true });        
+        console.log(blogs);
+        res.render('blog', blogs);
+        // res.status(200).json(blogs);
     } catch (err) {
         res.status(500).json(err);
     }
-    // res.render('main')
 
-})
+});
 
 // Create new blog - require login parameter
 
