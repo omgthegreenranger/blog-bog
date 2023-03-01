@@ -20,7 +20,6 @@ router.get('/', async (req, res) => {
                 attributes: ['username', 'email', 'id'],
             }],
         });
-        console.log(blogData);
         const blogs = blogData.map((blog) => blog.get({ plain: true }));
         res.render('homepage', { blogs });
         // res.status(200).json(blogData);
@@ -47,7 +46,6 @@ router.get('/:id', async (req, res) => {
             }]
         });
         const blogs = blogData.get({ plain: true });        
-        console.log(blogs);
         res.render('blog', blogs);
         // res.status(200).json(blogs);
     } catch (err) {
@@ -56,8 +54,5 @@ router.get('/:id', async (req, res) => {
 
 });
 
-// Create new blog - require login parameter
-
-// Edit blog - login required, no comments
 
 module.exports = router;

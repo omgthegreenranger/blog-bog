@@ -19,9 +19,8 @@ router.get('/', async (req, res) => {
     console.log(blogData);
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
     res.render('homepage', { blogs });  
-    // res.status(200).json(blogData);
   } catch (err) {
-    res.status(500).json(err);
+    res.render('login');
 }
 
 });
@@ -52,6 +51,8 @@ router.get('/blog/:id', async (req, res) => {
 
 });
 
-
+router.get('/submit', async(req, res) => {
+    res.render('submit')
+});
 
 module.exports = router;

@@ -15,13 +15,17 @@ router.get('/', async (req,res) => {
             attributes: ['first_name', 'last_name', 'username', 'email', 'id', 'author'],
             include: [{
                 model: Comment,
+                attributes: ['comment', 'id', 'date']
             },
             {
                 model: Blog,
+                attributes: ['title', 'slugline', 'date', 'id']
             }]
         });
-        const users = userData.map((user) => user.get({ plain: true }));        
+        const users = userData.map((user) => user.get({ plain: true }));
+        
         res.render('user', {users});
+        console.log(userData)
         // res.status(200).json(userData);
     } catch (err) {
         res.status(500).json(err);
@@ -35,14 +39,17 @@ router.get('/:id', async (req, res) => {
             attributes: ['first_name', 'last_name', 'username', 'email', 'id', 'author'],
             include: [{
                 model: Comment,
+                attributes: ['comment', 'id', 'date']
             },
             {
                 model: Blog,
+                attributes: ['title', 'slugline', 'date', 'id']
             }]
         });
-        // const users = userData.map((user) => user.get({ plain: true }));        
-        // res.render('user', users);
-        res.status(200).json(userData);
+        const users = userData.get({ plain: true });  
+        console.log(userData)      
+        res.render('user', users);
+        // res.status(200).json(userData);
     } catch (err) {
         res.status(500).json(err);
     }
