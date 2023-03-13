@@ -12,7 +12,8 @@ router.post('/', async (req, res) => {
           comment: req.body.comment,
           blog_id: req.body.blog_id,
         });
-        res.send(categoryData)
+
+        res.send(commentData)
       } catch (err) {
         console.log(err);
         res.status(500).json(err);
