@@ -1,4 +1,6 @@
 const blogPost = document.getElementById('blog-list');
+const addComment = document.getElementById('commentBtn');
+const commentBody = document.getElementById('commentBody');
 
 blogPost.addEventListener('click', async (event) => {
     console.log(event.target.parentElement.parentElement.dataset.link)

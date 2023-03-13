@@ -35,7 +35,7 @@ const sequelize = require('sequelize');
 router.get('/:id', async (req, res) => {
   try {
       const blogData = await Blog.findByPk(req.params.id, {
-          attributes: ['title', 'date', 'body', 'slugline', 'id'],
+          attributes: ['title', 'createdAt', 'body', 'slugline', 'id'],
           include: [{
               model: Comment,
               include: [{

@@ -13,10 +13,6 @@ Comment.init(
         autoIncrement: true,
     },
     // Date posted
-    date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-    },
     comment:{
         // Comment body
         type: DataTypes.TEXT,
@@ -30,18 +26,10 @@ Comment.init(
             key: 'id'
         }
     },
-    // BLOG ID for relationship
-    // blog_id: {
-    //     type: DataTypes.INTEGER,
-    //     references: {
-    //         model: 'blog',
-    //         key: 'id'
-    //     }
-    // }
     },
     {
         sequelize,
-        timestamps: false,
+        timestamps: true,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment',

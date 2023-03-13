@@ -15,11 +15,11 @@ router.get('/', async (req,res) => {
             attributes: ['first_name', 'last_name', 'username', 'email', 'id', 'author'],
             include: [{
                 model: Comment,
-                attributes: ['comment', 'id', 'date']
+                attributes: ['comment', 'id', 'createdAt']
             },
             {
                 model: Blog,
-                attributes: ['title', 'slugline', 'date', 'id']
+                attributes: ['title', 'slugline', 'createdAt', 'id']
             }]
         });
         const users = userData.map((user) => user.get({ plain: true }));
@@ -39,11 +39,11 @@ router.get('/:id', async (req, res) => {
             attributes: ['first_name', 'last_name', 'username', 'email', 'id', 'author'],
             include: [{
                 model: Comment,
-                attributes: ['comment', 'id', 'date']
+                attributes: ['comment', 'id', 'createdAt']
             },
             {
                 model: Blog,
-                attributes: ['title', 'slugline', 'date', 'id']
+                attributes: ['title', 'slugline', 'createdAt', 'id']
             }]
         });
         const users = userData.get({ plain: true });  

@@ -5,7 +5,7 @@ const sequelize = require('sequelize');
 router.get('/', async (req, res) => {
   try {
     const blogData = await Blog.findAll({
-        attributes: ['title', 'date', 'slugline', 'id'],
+        attributes: ['title', 'createdAt', 'slugline', 'id'],
         include: [{
             model: Comment,
             attributes: ['id', 'comment']

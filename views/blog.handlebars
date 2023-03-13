@@ -12,23 +12,12 @@
         <h4>{{slugline}}</h4>
       </div>
       <div id="post-info">
-        <p>Written by: <span>{{user.username}}</span> on <span>{{format_date date}}</span>.
+        <p>Written by: <a href="/user/"{{id}}><span>{{user.username}}</span></a> on <span>{{format_date createdAt}}</span>.
       </div>
       <div id="post-body">
           <p>{{{breaklines body}}}</p>
       </div>
     </div>
-    <div id="viewCommentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#comment-container" aria-expanded="false" aria-controls="collapseCommentContainer">View Comments</div>
-    <div id="commentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#addComment" aria-expanded="false" aria-controls="collapseComment">Add Comment</div>
-    <div id="comment-container" class="collapse">
-      {{#each comments as |comments|}}
-      {{> comments}}
-      {{/each}}
-    </div>
-    <div id="addComment"class="collapse">
-      <label for="commentBody" class="form-label">Enter comment</label>
-      <textarea class="form-control" id="commentBody" rows="3">Be nice...</textarea>
-      <button class="btn btn-primary">Submit Comment</button>
-    </div>
+    {{> comments}}
   </div>
 </div>

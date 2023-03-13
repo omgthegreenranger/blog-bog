@@ -11,9 +11,8 @@
         </div>
       </div>
       <div class="col-12 float-right" id="blog-info">
-        <p class="float-right">Written by: <a href=/user/{{user.id}}><span>{{user.username}}</span></a> on <span>{{format_date date}}</span>. <span>{{comments.length}} comments</span></p>
+        <p class="float-right">Written by: <a href=/user/{{user.id}}><span>{{user.username}}</span></a> on <span>{{format_date createdAt}}</span>. <span>{{comments.length}} comments</span></p>
       </div>
     </div>
     {{/each}}
-  </div>
-<script src="../blogs.js"></script>
+  </div><script type="module" src="../blogs.js"></script>

@@ -9,6 +9,5 @@ module.exports = {
   },
   breaklines: (body) => {
     return body = body.replaceAll("\n\n", '</p><p>');
-
   }
 }

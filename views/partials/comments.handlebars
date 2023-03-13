@@ -1,8 +1,23 @@
-<div id="comment-made" class="border border-dark my-2">
-    <div id="comment-details">
-        <p>On {{{format_date date}}}, <a href=/user/{{user.id}}>{{user.username}}</a> wrote...</p>
+    <div id="viewCommentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#comment-container" aria-expanded="false" aria-controls="collapseCommentContainer">View Comments</div>
+    <div id="commentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#addComment" aria-expanded="false" aria-controls="collapseComment">Add Comment</div>
+    <div id="comment-container" class="collapse">
+      {{#each comments as |comments|}}
+        <div id="comment-made" class="border border-dark my-2">
+            <div id="comment-details">
+                <p>On {{{format_date createdAt}}}, <a href=/user/{{user.id}}>{{user.username}}</a> wrote...</p>
+            </div>
+            <div id="comment-body">
+                <p>{{comment}}</p>
+            </div>
+        </div>
+      {{/each}}
     </div>
-    <div id="comment-body">
-        <p>{{comment}}</p>
+    <div id="addComment"class="collapse">
+      {{!-- {{#if login}}<label for="commentBody" class="form-label">Enter comment</label> --}}
+      <textarea class="form-control" id="commentBody" rows="3" placeholder="Be nice..."></textarea>
+      <button class="btn btn-primary" id="submitComment" data-blog="{{id}}">Submit Comment</button>
+      {{!-- {{else}}
+      <p>Please login or register to comment.</p>
+      {{/if}} --}}
     </div>
-</div>
+      <script src="../comments.js"></script>

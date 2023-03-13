@@ -7,7 +7,7 @@ const loginFormHandler = async (event) => {
   const password = $('#loginPassword').val().trim();
 
   if (email && password) {
-    const response = await fetch('/api/users/login', {
+    const response = await fetch('/api/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
@@ -27,7 +27,7 @@ const loginFormHandler = async (event) => {
     }
   }
 };
-$('#loginForm').on('submit', loginFormHandler);
+// $('#loginForm').on('submit', loginFormHandler);
 
 
 // registration form handler
@@ -80,6 +80,6 @@ const registerFormHandler = async (event) => {
     }
   }
 };
-$('#registerForm').on('submit', registerFormHandler);
+// $('#registerForm').on('submit', registerFormHandler);
 
 

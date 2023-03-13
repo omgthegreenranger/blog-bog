@@ -1,30 +1,30 @@
 [
     {
-        "date": "2023-02-26", 
+        "createdAt": "2023-02-26", 
         "comment": "That's so gross, dude",
         "user_id": 2,
         "blog_id": 1
     },
     {
-        "date": "2023-02-27", 
+        "createdAt": "2023-02-27", 
         "comment": "You made me throw up a bit",
         "user_id": 3,
         "blog_id": 1
     },
     {
-        "date": "2023-01-26", 
+        "createdAt": "2023-01-26", 
         "comment": "I don't believe you",
         "user_id": 3,
         "blog_id": 2
     },
     {
-        "date": "2023-01-26", 
+        "createdAt": "2023-01-26", 
         "comment": "Pics or it didn't happen.",
         "user_id": 2,
         "blog_id": 2
     },
     {
-        "date": "2023-02-3", 
+        "createdAt": "2023-02-3", 
         "comment": "Yeah, going to need some proof, man.",
         "user_id": 2,
         "blog_id": 2
