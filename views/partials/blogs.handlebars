@@ -1,13 +1,19 @@
-  <div class="col-md-6">
-    <a href=../blog/{{id}}>
-    <div class="blog-title">
-      <h3>{{title}}</h3>
-    </div>
-    <div class="blog-details">
-      <h4>{{slugline}}</h4>
+
+  <div id="blog-list">
+    {{#each blogs as |blogs|}}
+    <div class="col-12">
+      <div class="row" id="blogs" data-link="{{id}}">
+        <div class="col-12" id="blog-title">
+          <h3>{{title}}</h3>
+        </div>
+        <div class="col-12" id="blog-slug">
+          <h4>{{slugline}}</h4>
+        </div>
       </div>
-    </a>
-    <div>
-      <p>Written by: <a href=/user/{{user.id}}><span>{{user.username}}</span></a> on <span>{{format_date date}}</span>. <span>{{comments.length}} comments</span></p>
+      <div class="col-12 float-right" id="blog-info">
+        <p class="float-right">Written by: <a href=/user/{{user.id}}><span>{{user.username}}</span></a> on <span>{{format_date date}}</span>. <span>{{comments.length}} comments</span></p>
+      </div>
     </div>
+    {{/each}}
   </div>
+<script src="../blogs.js"></script>

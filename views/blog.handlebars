@@ -1,21 +1,34 @@
-<div class="row align-center mb-5">
-  <div class="col-md-6">
+<div>
+  <div class="col-md-12 border-bottom border-dark">
     <!-- Call the helper function with triple brackets to render the span as HTML -->
     <h2>Latest Post</h2>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-12 my-4">
     <div class="blog-container">
-    <div class="blog-title">
-      <h3>{{title}}</h3>
+      <div id="post-title">
+        <h3>{{title}}</h3>
+      </div>
+      <div id="post-slug">
+        <h4>{{slugline}}</h4>
+      </div>
+      <div id="post-info">
+        <p>Written by: <span>{{user.username}}</span> on <span>{{format_date date}}</span>.
+      </div>
+      <div id="post-body">
+          <p>{{{breaklines body}}}</p>
+      </div>
     </div>
-    <div class="blog-details">
-      <h4>{{slugline}}</h4>
-      <p>Written by: <span>{{user.username}}</span> on <span>{{date}}</span>.
+    <div id="viewCommentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#comment-container" aria-expanded="false" aria-controls="collapseCommentContainer">View Comments</div>
+    <div id="commentBtn" class="btn btn-primary" data-toggle="collapse" data-target="#addComment" aria-expanded="false" aria-controls="collapseComment">Add Comment</div>
+    <div id="comment-container" class="collapse">
+      {{#each comments as |comments|}}
+      {{> comments}}
+      {{/each}}
     </div>
-    <div class="blog-body"><p>{{{breaklines body}}}</p></div>
+    <div id="addComment"class="collapse">
+      <label for="commentBody" class="form-label">Enter comment</label>
+      <textarea class="form-control" id="commentBody" rows="3">Be nice...</textarea>
+      <button class="btn btn-primary">Submit Comment</button>
     </div>
-    {{#each comments as |comments|}}
-    {{> comments}}
-    {{/each}}
   </div>
 </div>
